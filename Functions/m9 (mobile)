@@ -1,0 +1,60 @@
+local playerService = game:GetService("Players")
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local userInputService = game:GetService("UserInputService")
+local camera = workspace.CurrentCamera
+
+-- Function to find the closest player along a ray
+local function findClosestPlayerAlongRay(origin, direction)
+    local closestPlayer = nil
+    local shortestDistance = math.huge -- Start with a very large distance
+
+    for _, player in pairs(playerService:GetPlayers()) do
+        if player ~= playerService.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local playerPosition = player.Character.HumanoidRootPart.Position
+            local projection = (playerPosition - origin):Dot(direction) / direction.Magnitude
+            if projection > 0 then -- Ensure the player is in front of the ray's origin
+                local projectedPoint = origin + direction.Unit * projection
+                local distanceToRay = (projectedPoint - playerPosition).Magnitude
+                if distanceToRay < 15 and projection < shortestDistance then -- Adjust 5 to a suitable "hit radius"
+                    closestPlayer = player
+                    shortestDistance = projection
+                end
+            end
+        end
+    end
+
+    return closestPlayer
+end
+
+-- Function to fire the pistol at the closest player along the ray
+local function firePistol(tapPosition)
+    -- Convert the tap position to a ray in 3D space
+    local ray = camera:ViewportPointToRay(tapPosition.X, tapPosition.Y)
+    local rayOrigin = ray.Origin
+    local rayDirection = ray.Direction * 1000 -- Long ray for targeting
+
+    -- Find the closest player along the ray
+    local closestPlayer = findClosestPlayerAlongRay(rayOrigin, rayDirection)
+    if closestPlayer and closestPlayer.Character and closestPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        -- Get the position of the closest player
+        local targetCFrame = closestPlayer.Character.HumanoidRootPart.CFrame
+
+        -- Create the args table with the updated CFrame
+        local args = {
+            [1] = targetCFrame
+        }
+
+        -- Fire the server event
+        replicatedStorage:WaitForChild("RemoteEvents"):WaitForChild("Weapons"):WaitForChild("PistolShoot"):FireServer(unpack(args))
+    else
+        warn("No valid player found along the ray!")
+    end
+end
+
+-- Connect the firing function to screen tap
+userInputService.TouchTap:Connect(function(touchPositions)
+    if #touchPositions > 0 then
+        local tapPosition = touchPositions[1] -- Use the first touch position
+        firePistol(tapPosition)
+    end
+end)
