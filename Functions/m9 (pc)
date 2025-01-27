@@ -1,0 +1,80 @@
+local playerService = game:GetService("Players")
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local userInputService = game:GetService("UserInputService")
+local camera = workspace.CurrentCamera
+
+local LocalPlayer = playerService.LocalPlayer
+local mouse = LocalPlayer:GetMouse()
+
+-- Function to find the closest player along a ray (from M9 script)
+local function findClosestPlayerAlongRay(origin, direction)
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+
+    for _, player in pairs(playerService:GetPlayers()) do
+        if player ~= playerService.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local playerPosition = player.Character.HumanoidRootPart.Position
+            local projection = (playerPosition - origin):Dot(direction) / direction.Magnitude
+            if projection > 0 then
+                local projectedPoint = origin + direction.Unit * projection
+                local distanceToRay = (projectedPoint - playerPosition).Magnitude
+                if distanceToRay < 15 and projection < shortestDistance then
+                    closestPlayer = player
+                    shortestDistance = projection
+                end
+            end
+        end
+    end
+
+    return closestPlayer
+end
+
+-- Function to shoot at the closest player using the M9 shooting mechanism
+local function fireM4A1AtClosestPlayer(tapPosition)
+    local ray = camera:ViewportPointToRay(tapPosition.X, tapPosition.Y)
+    local rayOrigin = ray.Origin
+    local rayDirection = ray.Direction * 1000  -- Long ray for targeting
+
+    local closestPlayer = findClosestPlayerAlongRay(rayOrigin, rayDirection)
+    if closestPlayer and closestPlayer.Character and closestPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        local targetPosition = closestPlayer.Character.HumanoidRootPart.Position
+
+        -- Fire the M4A1 shoot event to the server
+        local args = { [1] = targetPosition }
+        replicatedStorage:WaitForChild("RemoteEvents"):WaitForChild("PlayerWeaponRemotes"):WaitForChild("ProAt_NSS"):WaitForChild("M4A1Shoot"):FireServer(unpack(args))
+    else
+        warn("No valid player found along the ray!")
+    end
+end
+
+-- Connect to user input for shooting
+userInputService.TouchTap:Connect(function(touchPositions)
+    if #touchPositions > 0 then
+        local tapPosition = touchPositions[1]  -- Use the first touch position
+        fireM4A1AtClosestPlayer(tapPosition)
+    end
+end)
+
+-- Handle automatic shooting when holding down the mouse button (for M4A1)
+local isShooting = false
+
+mouse.Button1Down:Connect(function()
+    isShooting = true
+    while isShooting do
+        -- Convert the mouse position into ray and fire
+        local ray = camera:ViewportPointToRay(mouse.X, mouse.Y)
+        local rayOrigin = ray.Origin
+        local rayDirection = ray.Direction * 1000  -- Long ray for targeting
+        local closestPlayer = findClosestPlayerAlongRay(rayOrigin, rayDirection)
+        
+        if closestPlayer then
+            fireM4A1AtClosestPlayer(Vector2.new(mouse.X, mouse.Y))
+        end
+        
+        wait(0.05)  -- Adjust wait time for firing speed
+    end
+end)
+
+mouse.Button1Up:Connect(function()
+    isShooting = false
+end)
