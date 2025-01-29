@@ -113,7 +113,7 @@ m9PC.Visible          = true         = true.Visible          = true
 
 -- m9 function (pc)
 m9PC.MosueButton1Click:Connect(function()
-    loadstrint(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/m9%20(pc))()()
+    loadstrint(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/m9%20(pc))()
 end)
 
 -- Close Gui Button
