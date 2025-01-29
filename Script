@@ -1,7 +1,6 @@
 local ScreenGui   = Instance.new("ScreenGui")
 local Frame       = Instance.new("Frame")
-local M4A1PC      = Instance.new("TextButton")
-local m9PC        = Instance.new("TextButton")
+local M4A1PC      = Instance.new("TextButton") -- Add m9PC local button
 local InmateEsp   = Instance.new("TextButton")
 local CloseGui    = Instance.new("TextButton")
 local MinimizeGui = Instance.new("TextButton")
@@ -101,20 +100,7 @@ LockOn.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/aimbot/refs/heads/main/aimmbot.lua"))()
 end)
 
--- m9 button (pc)
-m9PC.Parent           = Tab2Frame  
-m9PC.Size             = UDim2.new(0, 200, 0, 50)
-m9PC.Position         = UDim2.new(0, 0, 0, 50)  
-m9PC.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-m9PC.Text             = "Lock On (pc)"
-m9PC.TextColor3       = Color3.fromRGB(0, 163, 203)
-m9PC.BorderSizePixel  = 0
-m9PC.Visible          = true         = true.Visible          = true
-
--- m9 function (pc)
-m9PC.MosueButton1Click:Connect(function()
-    loadstrint(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/m9%20(pc))()
-end)
+-- Add m9PC button and function
 
 -- Close Gui Button
 CloseGui.Parent           = Frame
