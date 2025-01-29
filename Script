@@ -98,7 +98,7 @@ LockOn.Visible          = true
 
 -- Lock On Button Function
 LockOn.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/aimbot/refs/heads/main/aimmbot.lua"))()()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/aimbot/refs/heads/main/aimmbot.lua"))()
 end)
 
 -- m9 button (pc)
