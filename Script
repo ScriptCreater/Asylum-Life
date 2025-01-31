@@ -1,18 +1,18 @@
-local ScreenGui   = Instance.new("ScreenGui")
-local Frame       = Instance.new("Frame")
-local M4A1PC      = Instance.new("TextButton") 
-local InmateEsp   = Instance.new("TextButton")
-local CloseGui    = Instance.new("TextButton")
-local MinimizeGui = Instance.new("TextButton")
-local TitlePanel  = Instance.new("Frame")
-local TitleLabel  = Instance.new("TextLabel")
+local ScreenGui      = Instance.new("ScreenGui")
+local Frame          = Instance.new("Frame")
+local TextButton     = Instance.new("TextButton")
+local TextButton1    = Instance.new("TextButton")
+local CloseButton    = Instance.new("TextButton")
+local MinimizeButton = Instance.new("TextButton")
+local TitlePanel     = Instance.new("Frame")
+local TitleLabel     = Instance.new("TextLabel")
 local Tab1Button     = Instance.new("TextButton")
-local Tab2Button    = Instance.new("TextButton")
-local m9Mobile    = Instance.new("TextButton")
-local LockOn      = Instance.new("TextButton")
-local Tab1Frame   = Instance.new("Frame")
-local Tab2Frame   = Instance.new("Frame")
-local isMinimized = false
+local Tab2Button     = Instance.new("TextButton")
+local TextButton2    = Instance.new("TextButton")
+local TextButton3    = Instance.new("TextButton")
+local Tab1Frame      = Instance.new("Frame")
+local Tab2Frame      = Instance.new("Frame")
+local isMinimized    = false
 
 -- ScreenGui
 ScreenGui.Parent = game.CoreGui
@@ -41,92 +41,91 @@ TitleLabel.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 TitleLabel.Text             = "Sword Ninja Asylum Life Script"
 TitleLabel.TextColor3       = Color3.fromRGB(0, 163, 203)
 
--- M4A1 (pc) Button Function
-M4A1PC.Parent           = Tab1Frame  
-M4A1PC.Size             = UDim2.new(0, 200, 0, 50)
-M4A1PC.Position         = UDim2.new(0, 0, 0, 0)  
-M4A1PC.Backgroundcolor  = Color3.fromRGB(20, 20, 20)
-M4A1PC.TextColor3       = Color3.fromRGB(0, 163, 203)
-M4A1PC.BorderSizePixel  = 0
-M4A1PC.Visible          = true
+-- Text Button
+TextButton.Parent           = Tab1Frame  
+TextButton.Size             = UDim2.new(0, 200, 0, 50)
+TextButton.Position         = UDim2.new(0, 0, 0, 0)  
+TextButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TextButton.Text             = "M4A1 (pc)"
+TextButton.TextColor3       = Color3.fromRGB(0, 163, 203)
+TextButton.BorderSizePixel  = 0
+TextButton.Visible          = true
 
--- M4A1 Button Function (pc)
-M4A1PC.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/M4A1%20(pc)"))()
+-- Text Button functionality
+TextButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Silent-Aim/refs/heads/main/M4A1"))()
 end)
 
---Inmate Esp Button
-InmateEsp.Parent           = Tab2Frame  
-InmateEsp.Size             = UDim2.new(0, 200, 0, 50)
-InmateEsp.Position         = UDim2.new(0, 0, 0, 0)  
-InmateEsp.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-InmateEsp.Text             = "Show Danger c:"
-InmateEsp.TextColor3       = Color3.fromRGB(0, 163, 203)
-InmateEsp.BorderSizePixel  = 0
-InmateEsp.Visible          = true
+--Text Button 1
+TextButton1.Parent           = Tab2Frame  
+TextButton1.Size             = UDim2.new(0, 200, 0, 50)
+TextButton1.Position         = UDim2.new(0, 0, 0, 0)  
+TextButton1.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TextButton1.Text             = "Show Danger c:"
+TextButton1.TextColor3       = Color3.fromRGB(0, 163, 203)
+TextButton1.BorderSizePixel  = 0
+TextButton1.Visible          = true
 
--- Inmate Button Function
-InmateEsp.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/Inmates"))()
+-- Text Button 1 functionality
+TextButton1.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Silent-Aim/refs/heads/main/inmate.lua"))()
 end)
 
--- m9 Button Mobile
-m9Mobile.Parent           = Tab1Frame  
-m9Mobile.Size             = UDim2.new(0, 200, 0, 50)
-m9Mobile.Position         = UDim2.new(0, 200, 0, 0)  
-m9Mobile.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-m9Mobile.Text             = "M9 (mobile)"
-m9Mobile.TextColor3       = Color3.fromRGB(0, 163, 203)
-m9Mobile.BorderSizePixel  = 0
-m9Mobile.Visible          = true
+-- Close Button
+CloseButton.Parent           = Frame
+CloseButton.Size             = UDim2.new(0, 25, 0, 25)
+CloseButton.Position         = UDim2.new(1, -25, 0, 0)
+CloseButton.Text             = "X"
+CloseButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+CloseButton.TextColor3       = Color3.fromRGB(0, 163, 203)
+CloseButton.BorderSizePixel  = 0
 
--- m9 Button Function
-m9Mobile.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/m9%20(mobile)"))()
+--text button 2
+TextButton2.Parent           = Tab1Frame  
+TextButton2.Size             = UDim2.new(0, 200, 0, 50)
+TextButton2.Position         = UDim2.new(0, 200, 0, 0)  
+TextButton2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TextButton2.Text             = "M9 (mobile)"
+TextButton2.TextColor3       = Color3.fromRGB(0, 163, 203)
+TextButton2.BorderSizePixel  = 0
+TextButton2.Visible          = true
+
+-- Text Button 2 functionality
+TextButton1.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Silent-Aim/refs/heads/main/M9%20for%20mobile"))()
 end)
 
--- Lock On Button
-LockOn.Parent           = Tab2Frame  
-LockOn.Size             = UDim2.new(0, 200, 0, 50)
-LockOn.Position         = UDim2.new(0, 200, 0, 0)  
-LockOn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-LockOn.Text             = "Lock On (pc)"
-LockOn.TextColor3       = Color3.fromRGB(0, 163, 203)
-LockOn.BorderSizePixel  = 0
-LockOn.Visible          = true
+--Text Button 3
+TextButton3.Parent           = Tab2Frame  
+TextButton3.Size             = UDim2.new(0, 200, 0, 50)
+TextButton3.Position         = UDim2.new(0, 200, 0, 0)  
+TextButton3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TextButton3.Text             = "Lock On (pc)"
+TextButton3.TextColor3       = Color3.fromRGB(0, 163, 203)
+TextButton3.BorderSizePixel  = 0
+TextButton3.Visible          = true
 
--- Lock On Button Function
-LockOn.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/aimbot/refs/heads/main/aimmbot.lua"))()
+-- Text Button 3 functionality
+TextButton3.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/aimbot/refs/heads/main/aimmbot.lua"))()()
 end)
 
--- Add m9PC button and function
-
--- Close Gui Button
-CloseGui.Parent           = Frame
-CloseGui.Size             = UDim2.new(0, 25, 0, 25)
-CloseGui.Position         = UDim2.new(1, -25, 0, 0)
-CloseGui.Text             = "X"
-CloseGui.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-CloseGui.TextColor3       = Color3.fromRGB(0, 163, 203)
-CloseGui.BorderSizePixel  = 0
-
--- Close button Function
+-- Close button functionality
 CloseButton.MouseButton1Click:Connect(function()
     ScreenGui:Destroy()  -- Close the GUI when the button is clicked
 end)
 
 -- Minimize Button
-MinimizeGui.Parent           = Frame
-MinimizeGui.Size             = UDim2.new(0, 25, 0, 25)
-MinimizeGui.Position         = UDim2.new(1, -50, 0, 0)
-MinimizeGui.Text             = "-"
-MinimizeGui.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-MinimizeGui.TextColor3       = Color3.fromRGB(0, 163, 203)
-MinimizeGui.BorderSizePixel  = 0
+MinimizeButton.Parent           = Frame
+MinimizeButton.Size             = UDim2.new(0, 25, 0, 25)
+MinimizeButton.Position         = UDim2.new(1, -50, 0, 0)
+MinimizeButton.Text             = "-"
+MinimizeButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MinimizeButton.TextColor3       = Color3.fromRGB(0, 163, 203)
+MinimizeButton.BorderSizePixel  = 0
 
--- Minimize Gui Function
-MinimizeGui.MouseButton1Click:Connect(function()
+-- Minimize button functionality
+MinimizeButton.MouseButton1Click:Connect(function()
     if isMinimized then
         Frame.Size         = UDim2.new(0, 400, 0, 300)  -- Restore original size
         TextButton.Visible = true
@@ -138,7 +137,7 @@ MinimizeGui.MouseButton1Click:Connect(function()
     end
 end)
 
--- Guns Tab
+-- Tab 1 button
 Tab1Button.Parent           = Frame
 Tab1Button.Size             = UDim2.new(.5, 0, 0, 30)
 Tab1Button.Position         = UDim2.new(0, 0, 0, 26)
@@ -147,7 +146,7 @@ Tab1Button.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Tab1Button.TextColor3       = Color3.fromRGB(0, 163, 203)
 Tab1Button.BorderSizePixel  = 0
 
--- Other Tab
+-- Tab 2 button
 Tab2Button.Parent           = Frame
 Tab2Button.Size             = UDim2.new(0.5, 0, 0, 30)
 Tab2Button.Position         = UDim2.new(.5, 0, 0, 26)
