@@ -1,6 +1,6 @@
 local ScreenGui   = Instance.new("ScreenGui")
 local Frame       = Instance.new("Frame")
-local M4A1PC      = Instance.new("TextButton") -- Add m9PC local button
+local M4A1PC      = Instance.new("TextButton") 
 local InmateEsp   = Instance.new("TextButton")
 local CloseGui    = Instance.new("TextButton")
 local MinimizeGui = Instance.new("TextButton")
