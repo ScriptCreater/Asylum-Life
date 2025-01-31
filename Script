@@ -6,8 +6,8 @@ local CloseGui    = Instance.new("TextButton")
 local MinimizeGui = Instance.new("TextButton")
 local TitlePanel  = Instance.new("Frame")
 local TitleLabel  = Instance.new("TextLabel")
-local GunsTab     = Instance.new("TextButton")
-local OtherTab    = Instance.new("TextButton")
+local Tab1Button     = Instance.new("TextButton")
+local Tab2Button    = Instance.new("TextButton")
 local m9Mobile    = Instance.new("TextButton")
 local LockOn      = Instance.new("TextButton")
 local Tab1Frame   = Instance.new("Frame")
@@ -139,22 +139,22 @@ MinimizeGui.MouseButton1Click:Connect(function()
 end)
 
 -- Guns Tab
-GunsTab.Parent           = Frame
-GunsTab.Size             = UDim2.new(.5, 0, 0, 30)
-GunsTab.Position         = UDim2.new(0, 0, 0, 26)
-GunsTab.Text             = "Silent Aim Guns (more soon...)"
-GunsTab.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-GunsTab.TextColor3       = Color3.fromRGB(0, 163, 203)
-GunsTab.BorderSizePixel  = 0
+Tab1Button.Parent           = Frame
+Tab1Button.Size             = UDim2.new(.5, 0, 0, 30)
+Tab1Button.Position         = UDim2.new(0, 0, 0, 26)
+Tab1Button.Text             = "Silent Aim Guns (more soon...)"
+Tab1Button.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Tab1Button.TextColor3       = Color3.fromRGB(0, 163, 203)
+Tab1Button.BorderSizePixel  = 0
 
 -- Other Tab
-OtherTab.Parent           = Frame
-OtherTab.Size             = UDim2.new(0.5, 0, 0, 30)
-OtherTab.Position         = UDim2.new(.5, 0, 0, 26)
-OtherTab.Text             = "Others"
-OtherTab.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-OtherTab.TextColor3       = Color3.fromRGB(0, 163, 203)
-OtherTab.BorderSizePixel  = 0
+Tab2Button.Parent           = Frame
+Tab2Button.Size             = UDim2.new(0.5, 0, 0, 30)
+Tab2Button.Position         = UDim2.new(.5, 0, 0, 26)
+Tab2Button.Text             = "Others"
+Tab2Button.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Tab2Button.TextColor3       = Color3.fromRGB(0, 163, 203)
+Tab2Button.BorderSizePixel  = 0
 
 -- Tab 1
 Tab1Frame.Parent           = Frame
@@ -182,10 +182,10 @@ local function switchTab(tabNumber)
 end
 
 -- Connect Tab Buttons
-GunsTab.MouseButton1Click:Connect(function()
+Tab1Button.MouseButton1Click:Connect(function()
     switchTab(1)
 end)
 
-OtherTab.MouseButton1Click:Connect(function()
+Tab2Button.MouseButton1Click:Connect(function()
     switchTab(2)
 end)
