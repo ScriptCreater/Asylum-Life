@@ -53,7 +53,7 @@ TextButton.Visible          = true
 
 -- Text Button functionality
 TextButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Silent-Aim/refs/heads/main/M4A1"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/M4A1%20(pc)"))()
 end)
 
 --Text Button 1
@@ -68,7 +68,7 @@ TextButton1.Visible          = true
 
 -- Text Button 1 functionality
 TextButton1.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Silent-Aim/refs/heads/main/inmate.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/Inmates"))()
 end)
 
 -- Close Button
@@ -92,7 +92,7 @@ TextButton2.Visible          = true
 
 -- Text Button 2 functionality
 TextButton1.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Silent-Aim/refs/heads/main/M9%20for%20mobile"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptCreater/Asylum-Life/refs/heads/main/Functions/m9%20(mobile)"))()
 end)
 
 --Text Button 3
